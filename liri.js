@@ -73,3 +73,18 @@ function movieInfo(userInput) {
         });
 
 }
+
+
+function concertInfo(userInput) {
+
+    let queryUrl = "https://rest.bandsintown.com/artists/" + userInput + "/events?app_id=codingbootcamp";
+
+    axios.get(queryUrl).then(function(response) {
+
+        console.log(queryUrl);
+
+        console.log(response.data[0].description)
+
+    });
+
+}
