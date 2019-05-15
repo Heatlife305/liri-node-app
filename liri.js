@@ -11,6 +11,8 @@ let spotify = new Spotify(keys.spotify);
 
 let moment = require("moment");
 
+let fs = require("fs");
+
 // User Inputs
 let command = process.argv[2];
 let userInput = process.argv[3];
@@ -135,4 +137,17 @@ function spotifyInfo(userInput) {
        
       }
     });
+}
+
+// This function will read off of random.txt file
+function randomInfo(userInput) {
+
+    fs.readFile("random.txt", "utf8", function(error,data) {
+        if (error) {
+            return console.log(error);
+        }
+
+        let dataArr = data.split(",");
+        input(dataArr[0],dataArr[1]);
+    })
 }
