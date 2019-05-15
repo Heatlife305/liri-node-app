@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+// Declaring all global variables
 let axios = require("axios");
 
 let keys = require("./keys.js");
@@ -8,11 +9,14 @@ let Spotify = require("node-spotify-api");
 
 let spotify = new Spotify(keys.spotify);
 
+let moment = require("moment");
+
 // User Inputs
 let command = process.argv[2];
 let userInput = process.argv[3];
 
 
+// Controls which command user chooses and calls the function responsible for displaying the data
 input(command, userInput);
 function input(command, userInput) {
     switch (command) {
@@ -33,6 +37,7 @@ function input(command, userInput) {
     }
 }
 
+// Retrieves data from the OMDB api using the axios method
 function movieInfo(userInput) {
 
 
@@ -77,14 +82,33 @@ function movieInfo(userInput) {
 
 function concertInfo(userInput) {
 
+
     let queryUrl = "https://rest.bandsintown.com/artists/" + userInput + "/events?app_id=codingbootcamp";
 
     axios.get(queryUrl).then(function(response) {
 
         console.log(queryUrl);
+        console.log(response.data);
 
-        console.log(response.data[0].description)
+        // Saving response into variable 
+        let concerts = response.data;
+    
+        // Loop through response data array to obtain specific data from bands in town api
+        for (let i = 0; i < concerts.length; i++) {
 
-    });
+            // Displaying venue info
+            console.log("\n=====UPCOMING CONCERT=====\n");
+            console.log("Venue: " + concerts[i].venue.name);
+            console.log("City: " + concerts[i].venue.city);
+            // Using moment.js to convert date of event to a more user-friendly format
+            console.log("Event Date: " + moment(concerts[i].datetime).format("MM/DD/YYYY"));
 
+        }
+
+    })
+    .catch((error) => {
+        if (error) {
+            console.log(error)
+        }
+    })
 }
