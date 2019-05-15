@@ -79,7 +79,7 @@ function movieInfo(userInput) {
 
 }
 
-
+// Retrieves data from Bands In Town api 
 function concertInfo(userInput) {
 
 
@@ -111,4 +111,25 @@ function concertInfo(userInput) {
             console.log(error)
         }
     })
+}
+
+// Retrieves data from Spotify api
+function spotifyInfo(userInput) {
+
+    spotify.search({ type: 'track', query: userInput }, function(err, data) {
+        if (err) {
+          return console.log('Error occurred: ' + err);
+        }
+       
+      console.log(data); 
+
+      let songs = data.tracks.items;
+
+      for (let i = 0; i < songs.length; i++) {
+
+        console.log("\n=====SONG INFO =====\n");
+        console.log("Artist(s): " + songs[i].artists[0].name);
+        console.log("Song name: " + songs[i].name);
+      }
+    });
 }
