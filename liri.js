@@ -130,6 +130,9 @@ function spotifyInfo(userInput) {
         console.log("\n=====SONG INFO =====\n");
         console.log("Artist(s): " + songs[i].artists[0].name);
         console.log("Song name: " + songs[i].name);
+        console.log("Preview song: " + songs[i].preview_url);
+        console.log("Album: " + songs[i].album.name);
+       
       }
     });
 }
