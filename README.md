@@ -28,7 +28,6 @@ Watch the video here: https://drive.google.com/file/d/15N2FaqUbGRNyKgrSGYgRIoHvx
     
         node liri.js concert-this <name of artist or band>
     
-    Output: The system will display a list of all events and locations where the artist or band will perform. It can result in multiple records. The system will also log all the results in the log.txt file. See screen-shot below:
 
     ![Results](/images/concert-this.png)
 
@@ -36,7 +35,6 @@ Watch the video here: https://drive.google.com/file/d/15N2FaqUbGRNyKgrSGYgRIoHvx
     
         node liri.js spotify-this-song <name of song>
     
-    Output: The system will display a list of information associated with the song. It can result in multiple records. The system will also log all the results in the log.txt file. See screen-shot below:
 
     ![Results](/images/spotify-this-song.png)
 
@@ -44,7 +42,7 @@ Watch the video here: https://drive.google.com/file/d/15N2FaqUbGRNyKgrSGYgRIoHvx
     
         node liri.js movie-this <name of movie>
     
-    Output: The system will display information associated with the movie. The system will also log all the results in the log.txt file. See screen-shot below:
+
 
     ![Results](/images/movie-this.png)
 
