@@ -99,6 +99,7 @@ function concertInfo(userInput) {
         for (let i = 0; i < concerts.length; i++) {
 
             // Displaying venue info
+            
             console.log("\n=====UPCOMING CONCERT=====\n");
             console.log("Venue: " + concerts[i].venue.name);
             console.log("City: " + concerts[i].venue.city);
